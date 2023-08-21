@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Prints</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("WR2qKJaJlsvxCqLYb");
+   })();
+</script>
+</head>
+<body>
+    
+    <header>
+        <div class="nav container">
+            <a href="#" class="logo">3D Prints</a>
+    <!-- <div class="rowalign">
+            <div class="dropdown">
+                <div class="select">
+                    <span class="selected">All Products</span>
+                    <div class="caret"></div>
+                </div>
+                <ul class="menu">
+                    <li class="active" onclick="filterObjects('all')"> All Products</li>
+                    <li onclick="filterObjects('fidget')"> Fidget</li>
+                    <li onclick="filterObjects('storage')"> Storage</li>
+                    <li onclick="filterObjects('computer')"> Computer Accessories</li>
+                    <li onclick="filterObjects('office')"> Office</li>
+                    <li onclick="filterObjects('art')"> 2D / 3D Art</li>
+                    <li onclick="filterObjects('sculpture')"> Sculptures</li>
+                    <li onclick="filterObjects('sign')"> Signs and Logos</li>
+                    <li onclick="filterObjects('keychain')"> Keychains</li>
+                    <li onclick="filterObjects('jewlery')"> Jewlery</li>
+                    <li onclick="filterObjects('diy')"> DIY</li>
+                    <li onclick="filterObjects('decor')"> Decor</li>
+                    <li onclick="filterObjects('household')"> Household Supplies</li>
+                    <li onclick="filterObjects('outdoor')"> Outdoor</li>
+                    <li onclick="filterObjects('kitchen')"> Kitchen</li>
+                    <li onclick="filterObjects('animal')"> Animals</li>
+                    <li onclick="filterObjects('building')"> Buildings</li>
+                    <li onclick="filterObjects('people')"> People</li>
+                    <li onclick="filterObjects('games')"> Games</li>
+                </ul>
+            </div> -->
+
+            <div class="search-wrapper">
+                <input type="search" id="search-item" placeholder="Search.." class="searchbar" onkeyup="search()">
+            </div>
+            <!-- </div> -->
+
+            <i class="bx bx-shopping-bag" id="cart-icon" data-quantity="0"></i>
+
+            <div class="cart">
+                <!-- <div style="text-align: right; position: relative">
+                    <input type="button" value="logout" class="btn"  onclick="logout()" id="logo">
+                </div>
+                 -->
+               <h2 class="cart-title">Your Cart</h2>
+
+               <div class="cart-content">
+                
+            </div>
+            <div class="total">
+                <div class="total-title">Total</div>
+                <div class="total-price">$0</div>
+            </div>
+            
+            <h4 class="graytext2">Minimum of $0.50 order</h4> 
+            <button type="button" class="btn-buy">Pay With Card</button>
+            <!-- <h4 class="graytext1">ONLY ACCEPTS <a href=".html">THESE ZIP CODES!</a></h4>  -->
+            <div class="gap"></div>
+            <div class="collapsible2">
+                <input type="checkbox" id="collapsible-head-3">
+            <label for="collapsible-head-3" class="product-title2">We <b>ONLY</b> accept North High Enrolled Students</label>
+            <div class="collapsible-text2">
+            <p>
+                <b>54703</b>
+                <div class="small-gap"></div>
+                <img src="img/zipcode.png" alt="">
+                <div class="gap"></div>
+                <b>54720</b>
+                <div class="small-gap"></div>
+                <img src="img/zipcodes2.png" alt="">
+            </p>
+            </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <button type="button" class="btn-mess" id="btn-mess" onclick="openPopup()">Pay In Person</button>
+            
+            <!-- <h3 class="graytext">or</h3>  -->
+            <!-- <button type="button" class="btn-buys" onclick="sendMail()">Pay With Cash in-person</button> -->
+
+            <i class="bx bx-x" id="close-cart"></i>
+            
+        </div>
+
+        <button onclick="topFunction2()" id="myBtn2" title="Go to top">Top</button>
+    </header>
+
+    <div class="popup" id="popup">
+        <img src="img/contact.png" alt="">
+        <form>
+            <h2>PAY IN PERSON</h2>
+            <p class="red">Only one product per submission</p>
+            <input type="text" id="name12" placeholder="First Last Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <textarea id="title12" rows="1" placeholder="EXACT Item Title" required></textarea>
+            <textarea id="quantity12" rows="1"></textarea>
+            <div class="rowalign3">
+            <textarea id="date12" rows="1" placeholder="Date | Ex: June 08" required></textarea>
+            <div class="gap2"></div>
+            <textarea id="time12" rows="1" placeholder="Time | Ex: 4:30 PM" required></textarea>
+            
+            </div>
+            <p class="red">Minimum of 5 Day Gap</p>
+
+            <textarea id="place12" rows="1" placeholder="Meetup Place (Exact)" required></textarea>
+            <p class="red">I will send you an email if I am not avaliable that day.</p>
+        
+
+        <div class="rowalign2">
+            <button type="button" onclick="closePopup()">Cancel</button>
+            <button type="button" onclick="sendPopup(); closePopup()" class="form-button">Pay</button>
+        </div>
+    </form>
+        
+    </div>
+
+    <section class="shop container">
+        <div class="displayRow">
+            <h2 class="section-title">Shop Products</h2>
+            
+        </div> 
+        <!-- ADD NEW PRODUCTS ABOVE OLD ONES! -->
+        <!-- MAKE IMAGE SMALL -->
+       
+        <div class="shop-content" id="shop-content">
+
+            <div class="product-box game storage">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhi7Rvb3nV4iWqPxKQfDLmJTAhZWZSz8LOpGJ9kBOIySkJa6h8NTLNZ7gVyLdQMAKAOlIM-29AnvMlBTmOibLpoTcHRiqYC6riOnnVoTZo2oZastNQmR7f4-TApFDXyGoNttplnRiuRueIoxpdGIu5vRFNWI1VygfmNx95tqA7rh4nxtEszTp64RXXguvY=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head37">
+                <label for="collapsible-head37" class="product-title">Minimalistic Xbox Controller Stand</label>
+                <div class="collapsible-text">
+                <p>
+                    Looks Good
+                </p>
+                </div>
+                </div>
+                <span class="price">$3.50</span>
+                <label>
+                    <li>Games</li>
+                    <li>Storage</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box office">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEicDNKrRPG_mss31gE7pRjZRWnOQRJJsFwewVfap_jKb9AVBsWQx1Y9JkoK7bGIcRt1OwwGF7za-agO4wOt49ZIGpUks5K4Lll7yfSXgz44JVooJGVR6UwCq2nAmfGHj7tqcDExNb6Pbi41vyTpkIMtOjd3wUPNpeLiT1pNVnbpCX54o7lmhrMdIVfhdm8=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head36">
+                <label for="collapsible-head36" class="product-title">Phone Stand</label>
+                <div class="collapsible-text">
+                <p>
+                    Supports Phone in Landscape Mode and Portrait Mode
+                </p>
+                </div>
+                </div>
+                <span class="price">$2.50</span>
+                <label>
+                    <li>Office</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box animal fidget">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEg2Vhr1qvU336UUfgqwbxajodp5N7qiN5UMkQ0Q522J_IBFlPKxksS7N9OyCbBtPl_fOW5O01CE0G3lzoNzmwSYdDU3UDIION1LYcphlZ32HsajXuO5A_hK1hAzOFKtdTVS3P2NQ--W0yTetuDmqVSrNdxlaP8bml0LHkHSJnt2tUgHq83tPMeUD78nZAM" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head31">
+                <label for="collapsible-head31" class="product-title">Elephant</label>
+                <div class="collapsible-text">
+                <p>
+                    Bendable
+                </p>
+                </div>
+                </div>
+                <span class="price">$3.50</span>
+                <label>
+                    <li>Animal</li>
+                    <li>Fidget</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box animal fidget">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEh69s-Utb63KMhtaLScbhLICzNW_Vt9f6fVPqM24TFCPQB4Ap1oon4bvfAGU8YuVXGRPXT7cHfUyIxozWhAAhITVv6d88GVf8g9p54YU90i-PKgAFByLz_N2_c7S1iNgQnW0zobUnMIVphMwWmixcTuPNEAufM35WQyvkpewK87N9xPGk59diPxXSSCu54=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head30">
+                <label for="collapsible-head30" class="product-title">Octopus</label>
+                <div class="collapsible-text">
+                <p>
+                    Bendable
+                </p>
+                </div>
+                </div>
+                <span class="price">$3</span>
+                <label>
+                    <li>Animal</li>
+                    <li>Fidget</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box sculpture art">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgdsfYkxhWhAJCeT5wdYdoMsz5j17zx_B3WyRzmh3WhEymUlJedRi7wr-_nqR6tXJVIeGmbFu57wQN9pJoW4flpeSUZpTBnfmCgg4tL-tJAgvD1iCyN4RmvN8YguGgSWQT_NEcHLT_U2xlBc-nCnQbJxNbduQ7va96bcgbRBPH8bKwCpMndQTlc8Gjtxhs=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head29">
+                <label for="collapsible-head29" class="product-title">Groot</label>
+                <div class="collapsible-text">
+                <p>
+                    Best Groot Model in decades
+                </p>
+                </div>
+                </div>
+                <span class="price">$7.50</span>
+                <label>
+                    <li>Sculpture</li>
+                    <li>Art</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box kitchen art household">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEg5hiq77uqpKc9Dc-AJt6ko-f_rYYMW6NRmiCdqbIl5iEVmhwkcBCLoqms__vxCJHElcBlWo5kcnJrirwFg0PJbufrK3Ols2j2JYhn6X3SqNcOQCBKzsYkRJ4t7DnNEswneUg0PcLHho2gcPfnQJnVOrf10CsY35RY0TuKensATnqE4rF4koHf2nzUhY00=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head28">
+                <label for="collapsible-head28" class="product-title">Diamond Vase</label>
+                <div class="collapsible-text">
+                <p>
+                    Cool Looking Diamond Vase that can hold your amazing plants
+                </p>
+                </div>
+                </div>
+                <span class="price">$12</span>
+                <label>
+                    <li>Kitchen</li>
+                    <li>Household</li>
+                    <li>Art</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box sign">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEi0fVSVDLj5ECszmYd9wso4blnyDUhdS6O99ru50Mxq2DtC7cmypenoJmt-oXTcHWzhTSS_0MU61_zPDRU2SE31HYioPftnLuwTDzu5A8Lx56_iV6JJ-VvY5M1stb4Db7M7zk0NoX5KY9v7Ju1q3n4B0QqP2-B839CbxL8UlmdqEWuHyAXLBHrAzr2VjBs=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head27">
+                <label for="collapsible-head27" class="product-title">Danger Signs</label>
+                <div class="collapsible-text">
+                <p>
+                    Pack of DANGER Signs
+                </p>
+                </div>
+                </div>
+                <span class="price">$0.75</span>
+                <label>
+                    <li>Signs</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box jewlery">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhXBeQmNRHFsCHDKKDbOUCsAMOCKvW3q0394hZbd9tthZSmClf_USwCCXkML514tmZRve-MmSiRSXgZoPFgvsSEDla15_pPTLGrhI4bSlRi-b8kDmIzWp3mjHGBEKM9c5jWkB0Z4PXCq6D2XxeRPqKXTV-Um9RpCBde9_PXsRTOeGGkTn_OVocEcycX3Og=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head26">
+                <label for="collapsible-head26" class="product-title">Ring</label>
+                <div class="collapsible-text">
+                <p>
+                    Fits Most
+                </p>
+                </div>
+                </div>
+                <span class="price">$0.25</span>
+                <label>
+                    <li>Jewlery</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEi7hi2_eGnEVm1A5ch-ejrtzPWiYaHwPOYJ4rVLSgchqMzyAVnewzSZgCwa7YJ7DKkX7H9mws94RyZAKv6t3ko2tg3Y0gGQdCGxBXGEatwznnzU4wXadtlg2LEFcyEN69ngKPASdybAu5TEAT6hofrgONtY3LlLCfKWps_9SpsMUEiUF4zwiXtvNbe9als=w200-h200" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head25">
+                <label for="collapsible-head25" class="product-title">Mystery Box</label>
+                <div class="collapsible-text">
+                <p>
+                    Get a Random Item(s) From This Website - Either Gain Or Loose!
+                </p>
+                </div>
+                </div>
+                <span class="price">$4.50</span>
+                <label>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box games">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhkAj-g3uWzXnXHIfiCZkmMdveCQUDFdmXCAm4_iDQfQ0nNKFF4-Arr-z5juBCHlvSpy-TBhJhy62bjOrvMSzfIhQ3FLXf-uWymWieqwI1jQg-O35vVKMXUq4srL54mS_5j33_9f0vX1Y8zJ00W4PYDl_skHYMxEO1Z6XA0tBTlA8mYZJIUabvXrgRRJEM=w292-h219" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head24">
+                <label for="collapsible-head24" class="product-title">Gaming Chopsticks</label>
+                <div class="collapsible-text">
+                <p>
+                    Keep your hands not greasy by using the chopsticks
+                </p>
+                </div>
+                </div>
+                <span class="price">$0.50</span>
+                <label>
+                    <li>Games</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box games art sculpture">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhpIW8lX4P73Vt5lzATJbU77EywYkU9YEXY0JiTlaIGCrx1LM7_LYiJXYw2DsVgSyg2AQAkFYjVF6I0Nh4MRSLCVESLn8Mf1fHsYc9UYWNk4qRM4ONtq-ZtZcWeBbgjDygVNy6zxsPkhYS24XmnQ4Y89B0N__4mDzKadliFtUdgAtBRcLBB08uiTI5jffw=w279-h210" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head23">
+                <label for="collapsible-head23" class="product-title">Google Dino</label>
+                <div class="collapsible-text">
+                <p>
+                    No Description
+                </p>
+                </div>
+                </div>
+                <span class="price">$0.25</span>
+                <label>
+                    <li>Games</li>
+                    <li>Art</li>
+                    <li>Sculpture</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box games art">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgjDrsCFqMovNT-DzgFejnaSVy-54z8iaAfbIP2ntBQevc9osWza6mXqiWqHt6pVEa5814Z_2Vaqnp2B242jBvr9RTqz_RF--8UY6McFY65eiaQAt-iEEm4nl61-ZuQTNTYf3AUtBYhLg980Og_0UVyFDSWy3yWD8uiTnkU25MuprCl1ZIUEt_oaWYVwow=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head22">
+                <label for="collapsible-head22" class="product-title">Pokemon Chess Set</label>
+                <div class="collapsible-text">
+                <p>
+                    Doesn't come with board
+                </p>
+                </div>
+                </div>
+                <span class="price">$9</span>
+                <label>
+                    <li>Games</li>
+                    <li>Art</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box games">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhLhlSZuAErRT1MuDzuAvJCUfAvs8fRkAI_K-_sxydr8mscIlSlnk6t9di3mycYbTB5hgc4jbvWXaT5WTqv25Cjmr-cJUX1VDYrgtNvQbxNA0rR3xAS8vLym3X2wMrgEU79X2U9fMn7FFI4BOG-mkzPRNMCYTuw-pYp3Hg_6CLFph6AfLqrtULNLHcK2sA=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head21">
+                <label for="collapsible-head21" class="product-title">Tic Tak Toe</label>
+                <div class="collapsible-text">
+                <p>
+                    Can You Beat Me?
+                </p>
+                </div>
+                </div>
+                <span class="price">$3</span>
+                <label>
+                    <li>Games</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box storage art games">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjF667tIVjl0sD8LDSmv2TzZunVHMnGuroofotwqHWWTQy9Lc9LUERb5j5ZX0ddvyZSPoSOvY0gzFDqqdAnF1zGr02z_TZV4q3I4lXSQ3ijFxdmgOMnz_HknvtZnTHwCFd0Q5Y2Ayux_Ng6Ai057NW6-Sh1jU9kAKwu0Q-tfPmx8T33VSce1QvvsTr-Z3k=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head20">
+                <label for="collapsible-head20" class="product-title">Minecraft Grass Block</label>
+                <div class="collapsible-text">
+                <p>
+                    Hidden Storage in Minecraft Block
+                </p>
+                </div>
+                </div>
+                <span class="price">$2.50</span>
+                <label>
+                    <li>Storage</li>
+                    <li>Art</li>
+                    <li>Games</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box storage household">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgPR7pzmzYgdTLAvCSJ5JOOD2NZICer8VvfL-VXg_LD2Vq8mCyVLtFUs955qtFY9VI9w4uhYriyBc80X66JT-NMZOJFlsLYt8mu5Xel0tr7_xUTSte4Q2oJHYqeMV7AQwpiKy91nUra0krSkFVEpj5ML2BgW4hEdEoLVlCKa314qge6cmtBTEZcHqU2ns4=w200-h142" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head19">
+                    <label for="collapsible-head19" class="product-title">Shoe Stand</label>
+                <div class="collapsible-text">
+                <p>
+                    Holds a pair of shoes
+                </p>
+                </div>
+                </div>
+                <span class="price">$10</span>
+                <label>
+                    <li>Storage</li>
+                    <li>Household</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <!-- <div class="product-box art fidget">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEg3fZJhRZUcSNRX1qHnL4iQkeDZcb2LVY4WRE4FiBdhywMlj9uomhfrQDysL79taeUvFAOyguyxGSncwdfmZesZFkbOzZFst72WNV06Oo2n5w_Ffo8vKr784RxoeglM4OZfWr9bdOVOSEoyQlsfZKmVPEt7m25jNVchbXTrL3JgM_e-1oU--3InvO_HjqA=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head18">
+                <label for="collapsible-head18" class="product-title">Spinning Art (16x16)</label>
+                <div class="collapsible-text">
+                <p>
+                    flip each peice over individually to create some cool art <br><br> Black on Back and Custom Color on Front
+                </p>
+                </div>
+                </div>
+                <span class="price">$9.50</span>
+                <label>
+                    <li>Art</li>
+                    <li>Fidget</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box art fidget">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEg3fZJhRZUcSNRX1qHnL4iQkeDZcb2LVY4WRE4FiBdhywMlj9uomhfrQDysL79taeUvFAOyguyxGSncwdfmZesZFkbOzZFst72WNV06Oo2n5w_Ffo8vKr784RxoeglM4OZfWr9bdOVOSEoyQlsfZKmVPEt7m25jNVchbXTrL3JgM_e-1oU--3InvO_HjqA=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head17">
+                <label for="collapsible-head17" class="product-title">Spinning Art (8 x 8)</label>
+                <div class="collapsible-text">
+                <p>
+                    flip each peice over individually to create some cool art <br><br> Black on Back and Custom Color on Front
+                </p>
+                </div>
+                </div>
+                <span class="price">$3.25</span>
+                <label>
+                    <li>Art</li>
+                    <li>Fidget</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div> -->
+
+            <div class="product-box office storage">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEj7O3P52dZFQ4Qj9wtdO-jC4Kye3rNYJGb6IJELoNJUAqIun0By5OXBV1Z9Sk1OGWdPzI6oexy_jp7ZwiAjrrYh5lyB4as7u-pQv1MuX-_IZ5yZs9zeN42CILwCb6ckrZqCShNJIPVuiFV0E6-ncpF3-6botHzn1WtE-EPVi1GWE3l2CDlK-0TkaarF0k4=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head16">
+                <label for="collapsible-head16" class="product-title">Pen Holder</label>
+                <div class="collapsible-text">
+                <p>
+                    Holds tons of pens while looking really cool
+                </p>
+                </div>
+                </div>
+                <span class="price">$1.75</span>
+                <label>
+                    <li>Office</li>
+                    <li>Storage</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box sign">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgCZp21qaeCOqMwgqeNEZikdTL6LAC-6S9-y4o3rJ49M993bGYVHq37I_d3CVPZr96vMQ9hMPqTA6ev-KY4jwrT4akM_komRI7gO9_x_Za1tZNABkKDxofZ_1RQoX2DEmv0CLMXlN-7wnfBsE4ADkhHO6VwMbminLW5k0g6-RZuDWX3z9Jo0VXQquAlhhs" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head15">
+                <label for="collapsible-head15" class="product-title">Warning Signs</label>
+                <div class="collapsible-text">
+                <p>
+                    Even Larger Pack of DANGER Signs
+                </p>
+                </div>
+                </div>
+                <span class="price">$2.25</span>
+                <label>
+                    <li>Signs</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box storage games">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjA4gJ4BWgGk_g94OxOxtoMh2dZuaOlt8tvkKlguhH-TdQCCsVgcktAIJ_IPdoYRglx2b7ZtdSUcbHMZy3PiotZ6MQfm_yVjr4MLh2dqGq8g_CDJZchi7q2iDijjBhCDyrN1RF7JhLDEHM-PJPhpVOnvzScOWgiNzrcWOjmJm4L7eopx8gj8StecB4LjKs=w200-h151" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head14">
+                <label for="collapsible-head14" class="product-title">XBOX Controller Stand</label>
+                <div class="collapsible-text">
+                <p>
+                    Single Controller Stand that looks amazing
+                </p>
+                </div>
+                </div>
+                <span class="price">$2.75</span>
+                <label>
+                    <li>Games</li>
+                    <li>Storage</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box fidget outdoor">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjNZfbZ25d0FCngwIG41aucFhfPK4XIGMwzduhPbZ-cs7So1m4PZJnJSuTlgTztOymjYmp2p2NQO6CL0jn3gwR-5uy3WlOTosoUQPISFp9VcasPDOU2hchD_WQTCx_3JLE3CXDcKxB22ZkXhk1aEylRB9itqJjxAPc8ocZCd6C_FIxUc0ESE_Z0N9Jq4M8=w200-h149" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head13">
+                <label for="collapsible-head13" class="product-title">Whistle</label>
+                <div class="collapsible-text">
+                <p>
+                    118db Whistle 
+                </p>
+                </div>
+                </div>
+                <span class="price">$0.50</span>
+                <label>
+                    <li>Fidget</li>
+                    <li>Outdoor</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box computer storage">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhyw8jL7H8dFfcGf0dKq2xCt6cv3gyfiJXgM__Kh4b3N2T8qQAR8dgflFf6buqe_bE1Zf-2e1ZnPtMXbvx6y6XdEr7OGz2YpATdUm9CHZqEEpfCswbxLBqqpmblmnY6GhukNiWADLtYuNKjYx7YarLeCHxf3QYDxaQkogvVNZBX-WxJAqqcfPPiSZHpFEo=w200-h157" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head12">
+                <label for="collapsible-head12" class="product-title">USB / SD Card Holder</label>
+                <div class="collapsible-text">
+                <p>
+                    Holds all your usb flash drives and sd cards
+                </p>
+                </div>
+                </div>
+                <span class="price">$1.25</span>
+                <label>
+                    <li>Computer</li>
+                    <li>Storage</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box computer">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEg_iO5P21zZB5G85jRa9a1dhvrOthvWuTDScKyBv1bFuOrJ32xyv-6112LfEZ7vMqM5Z68-WFsNGMAtJFIerti7Q6mRYHRMPPNQzsJTA8-a6wbSA7cg4quB7XkicnblaWUg3WFzX8VV8afF5nYJFXCYx17cMOBFU42V9VsnlPPTfS1CN8njRjsmc4n5uZY=w200-h140" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head11">
+                <label for="collapsible-head11" class="product-title">Laptop Stand</label>
+                <div class="collapsible-text">
+                <p>
+                    Raises laptop
+                </p>
+                </div>
+                </div>
+                <span class="price">$8.50</span>
+                <label>
+                    <li>Computer</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box computer storage">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEi2_lvZaQa4E5TndzaKdZjX_5eBS9oELsr_Nd3mmKjltpYL-GtcpfQPSlaED_WhUvQ45trnQZsTi5JnZM_krpHA6u6AUxG60s2qcAYm-Xypbb8HXS_hWXx9hY6xc452fWJnEGXq1idwe8tTohktaxnrnFAKBdnlSzr7JCjLec1LAHxsVkFH6rbCA_jSXKk=w200-h150" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head10">
+                <label for="collapsible-head10" class="product-title">Laptop Stand</label>
+                <div class="collapsible-text">
+                <p>
+                    Holds Laptop away from desk
+                </p>
+                </div>
+                </div>
+                <span class="price">$6.50</span>
+                <label>
+                    <li>Computer</li>
+                    <li>Storage</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box fidget">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgcoQTHP7NaZDbyb6JXAE7i-r4gBnggQGXBVzvt1L5407UKUf02kcLlJ9FTMYeKe12Oa-GmzyjY-R8OHOI3xJC_6TLkB8EyH2hJQFY8z811lhT5xiwbgH2btBSzv3R8mnWGP9BTaK0yH0P1VmI7l7MxifoslulmiQHUu6ioJoC8qTK6TQAGhgt1vSgeq4Q=w200-h141" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head9">
+                <label for="collapsible-head9" class="product-title">Infinity Cube</label>
+                <div class="collapsible-text">
+                <p>
+                    Not Finite
+                </p>
+                </div>
+                </div>
+                <span class="price">$2.50</span>
+                <label>
+                    <li>Fidget</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box storage computer">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEipXbwu8xKXfKpczb1etyP_mnyX-Pje_-01Tw5wOfLnunXax3D6F8wbLVpGz6b4f7NglzYnqU9EnmeVFo_xiys9jnurFwxUVneSWfR9qpKVBhiUljZaiYlef7U6VP7tDXDDVRVsZbrYc_UzsAZMGmfqkiPvRTlI7FMNhh6S2l98dXgtq-Wk6tWo1-af2AI=w220-h170" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head8">
+                <label for="collapsible-head8" class="product-title">Headphone Stand</label>
+                <div class="collapsible-text">
+                <p>
+                    Holds Most Headphones for desk
+                </p>
+                </div>
+                </div>
+                <span class="price">$7.25</span>
+                <label>
+                    <li>Storage</li>
+                    <li>Computer</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box animal fidget">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjRA1o2KjAbC4CBg6mkWZ1qLuQqYq0z0v_QWm34Bhrn4g9zlLRWX3NwnfsIGXEkO6ise3lYqGvkZMHIj00wi9ZPqeCtF5KvCBjBfUWT2aYaZrWzTmALiYBJmymL61auTYealEcH0_9LHwyvKOL8KdwmyrCCnLrzV8eZ5lAW_OmcSqJiuQLa9EOSSvbJE1M=w200-h181" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head7">
+                <label for="collapsible-head7" class="product-title">Articulated Snake</label>
+                <div class="collapsible-text">
+                <p>
+                    Fun snake toy that can bend
+                </p>
+                </div>
+                </div>
+                <span class="price">$2.50</span>
+                <label>
+                    <li>Animals</li>
+                    <li>Fidget</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box games storage">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjTnYwa5oC_kaULbAB9utwyTbzyy69wyEqKvKc6rqU0E7PrqvmNBKDyXJL2EC-cHkaEeHixzkrSpaQY9uR7R1ObOM_-0-0C2KhwU2AC8IFAUlmXtRqC3mo8Amp0KItlZLLdYhRx06MOLfH8RW5CDpQzm5684pqx0sOy7wP94H5UEP9bxQwkN-wMJJw9QMY=w200-h198" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head6">
+                <label for="collapsible-head6" class="product-title">XBOX Controller Stand</label>
+                <div class="collapsible-text">
+                <p>
+                    Holds 2 Controllers
+                </p>
+                </div>
+                </div>
+                <span class="price">$5.50</span>
+                <label>
+                    <li>Games</li>
+                    <li>Storage</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box keychain">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgaBBsjZRGRyOlXSNbG8Nj-XqJOrNZ7ThbK1IT03T97KEm1lYFI4gWiuWP_fDwkrHPZlwZ7BToFriRx_5jC5mTe-o8w5fXXhVv_sZXe2d5xHwFWyhV1fOdiA2RjfTERkd3MT9i-h1SkdaCxANGembLVvGX7_EH3VKpVEhoKhUf6YVePqrFyJJZ4HOGS98c=w200-h200" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head5">
+                <label for="collapsible-head5" class="product-title">Phone Stand</label>
+                <div class="collapsible-text">
+                <p>
+                    Small Phone Stand that can be stored anywhere
+                </p>
+                </div>
+                </div>
+                <span class="price">$0.50</span>
+                <label>
+                    <li>Keychain</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box storage games">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEj7N5dvPK2l5uQW7egTnz9V6Q1vMlYGhvN0TXNQ65tYhY9U-iQniiPFgvzuFJ9esAduESOivaPJz3Eed7N4fLi0E3InVrG65WLTehRQ0LoEXPTp7L_bJ0piGOhA0t1MW0bHBedpXMUI1Hwg7sZpPggVfelZAcvHmNHV51UzrVCSWNZ9FfrpumXYb25lFbo=w200-h200" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head4">
+                <label for="collapsible-head4" class="product-title">Mario Storage</label>
+                <div class="collapsible-text">
+                <p>
+                    Store Items Inside of Mario
+                </p>
+                </div>
+                </div>
+                <span class="price">$8.50</span>
+                <label>
+                    <li>Storage</li>
+                    <li>Games</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box sculpture art">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEi3VrMKex6xu6B0mt_-BKipg5Z8x_45XN-m3ygNbBcl-6FCsV5oOTVCsiTVicTsCynImZwXwwegpMMU-iAnc6RIRefKL7Z_7rmtdPdsf3C8QizWnp-mg7FWZSD7NfU0tqoPLDolv8dKKjuovU51stIv1xLyCE37mtQ84aKOd5-YkdG5AdYAhPeI32n7-Sg=w198-h200" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head3">
+                <label for="collapsible-head3" class="product-title">T-Rex Puzzle</label>
+                <div class="collapsible-text">
+                <p>
+                    Fun 3D Puzzle for all ages
+                </p>
+                </div>
+                </div>
+                <span class="price">$1</span>
+                <label>
+                    <li>Sculpture</li>
+                    <li>Art</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box fidget games">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgPuAlN2hF4w8pzTYNO4q9yqWGqrBzS9525FlQ0iKHJHsbp0TN39Qgd3Fzp9rM35fncFHGnH7GAgwUQcKAIPJArKXmMmoHMPutn8eO6O3l7ZEaYEAhyFuA7O2v7noPnyUZNM73sGELB_2NxifWsw4TQTv0ScjrvYvmQ97OEX4PFkOrKEchJ-6wPg41efk4=w150-h200" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head2">
+                <label for="collapsible-head2" class="product-title">Chinese Puzzle Ball</label>
+                <div class="collapsible-text">
+                <p>
+                    Cool Spinning Circles, I've never printed before. Ill refund you if it doesnt work.
+                </p>
+                </div>
+                </div>
+                <span class="price">$2</span>
+                <label>
+                    <li>Fidget</li>
+                    <li>Games</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+            <div class="product-box fidget art animal">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgzDMhGcerQwLJap0svnyDvmgGZBfLF9syk5FeN8AAN_P0atKPhE46kiLk-TfL7fUWqyzGRd7-_hBBelH8cpN28fBEGcH84Uq9y2BhsLuWWKuRqDLzK-LbPJmJ4zF6yLZRo3QJhSqL1kF0iywmrtENMGYH-C3sKj_nxBRKo-gksJ587BSzwVey5sOPOYxE=w150-h200" alt="" class="product-img">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head1">
+                <label for="collapsible-head1" class="product-title">Articulated Axolotl</label>
+                <div class="collapsible-text">
+                <p>
+                    Cute Axolotl that can bend
+                </p>
+                </div>
+                </div>
+                <span class="price">$4</span>
+                <label>
+                    <li>Fidget</li>
+                    <li>Art</li>
+                    <li>Animal</li>
+                </label>
+                <i class="bx bx-shopping-bag add-cart"></i>
+            </div>
+
+
+            
+
+        </div>
+        <ul class="listPage">
+            <li id="current-page" class="active current-page"></li>
+        </ul>
+    </section>
+    
+
+    <script src="js/script.js" defer></script>
+    <script src="js/cart.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    
+    <script>var __basePath = './';</script>
+		<script src="https://cdn.jsdelivr.net/npm/ag-grid-enterprise@30.0.6/dist/ag-grid-enterprise.min.js"></script>
+
+</body>
+
+</html>
