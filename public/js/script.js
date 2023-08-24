@@ -458,7 +458,7 @@ const test = () => {
         var quantity = quantityElement.value;
         
 
-        total= total + (price * quantity) + 4.50;
+        total= total + 4.50 + (price * quantity);
         
         
     }
