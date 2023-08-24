@@ -456,7 +456,11 @@ const test = () => {
         var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0];
         var price = parseFloat(priceElement.innerText.replace('$', ""));
         var quantity = quantityElement.value;
-        total= total + (price * quantity) + (quantity * 3.50);
+        
+
+        total= total + (price * quantity) + 4.50;
+        
+        
     }
         // If price contain some cents value
 
