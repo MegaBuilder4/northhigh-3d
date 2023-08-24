@@ -78,7 +78,7 @@ app.post('/stripe-checkout', async (req, res) => {
   //     }
       
   // });
-    console.log('lineItems: ', lineItems);
+    console.log('lineItems: ', lineItems, "4.50");
 
     // Create Checkout Session
     const session = await stripeGateway.checkout.sessions.create({
