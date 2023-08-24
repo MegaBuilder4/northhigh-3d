@@ -52,15 +52,7 @@ app.post('/stripe-checkout', async (req, res) => {
             },
             quantity: item.quantity,
 
-            price_data: {
-              currency: 'usd',
-              product_data: {
-                  name: "shipping cost",
-                  images: "https://static.vecteezy.com/system/resources/thumbnails/002/206/240/small/fast-delivery-icon-free-vector.jpg"
-              },
-              unit_amount: 450,
-          },
-          quantity: 1,
+
 
         }
         
