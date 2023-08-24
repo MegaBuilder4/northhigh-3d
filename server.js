@@ -52,18 +52,7 @@ app.post('/stripe-checkout', async (req, res) => {
             },
             quantity: item.quantity,
 
-            
-
-        }
-        
-    });
-
-    const shipping = req.body.items.map((item) => {
-      const unitAmount = parseInt(item.price.replace(/[^0-9.-]+/g, '') * 100);
-      console.log('item-price: ', item.price);
-      console.log('uniAmount: ', unitAmount);
-      return {
-          price_data: {
+            price_data: {
               currency: 'usd',
               product_data: {
                   name: "shipping cost",
@@ -73,12 +62,31 @@ app.post('/stripe-checkout', async (req, res) => {
           },
           quantity: 1,
 
+        }
+        
+    });
+
+  //   const shipping = req.body.items.map((item) => {
+  //     const unitAmount = parseInt(item.price.replace(/[^0-9.-]+/g, '') * 100);
+  //     console.log('item-price: ', item.price);
+  //     console.log('uniAmount: ', unitAmount);
+  //     return {
+  //         price_data: {
+  //             currency: 'usd',
+  //             product_data: {
+  //                 name: "shipping cost",
+  //                 images: "https://static.vecteezy.com/system/resources/thumbnails/002/206/240/small/fast-delivery-icon-free-vector.jpg"
+  //             },
+  //             unit_amount: 450,
+  //         },
+  //         quantity: 1,
+
           
 
-      }
+  //     }
       
-  });
-    console.log('lineItems: ', shipping, lineItems);
+  // });
+    console.log('lineItems: ', lineItems);
 
     // Create Checkout Session
     const session = await stripeGateway.checkout.sessions.create({
