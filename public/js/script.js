@@ -458,7 +458,7 @@ const test = () => {
         var quantity = quantityElement.value;
         
 
-        total= total + 4.50 + (price * quantity);
+        total= total + 4 + (price * quantity);
         
         
     }
@@ -471,7 +471,7 @@ const test = () => {
 
 var amount = total;
 
-if (amount < 0.49){
+if (amount < 4.99){
     var buybtn = document.querySelector('.btn-buy');
     var text = document.querySelector('.graytext2');
 
