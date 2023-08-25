@@ -160,7 +160,7 @@ const addShippingToCard = () => {
     saveCartItems();
     updateCartIcon()            
 }
-setInterval(addShippingToCard, 2**31 - 1)
+addShippingToCard
 
 
 
