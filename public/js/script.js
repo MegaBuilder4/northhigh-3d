@@ -151,7 +151,7 @@ function addProductToCart2(title, price, productImg){
 
 var debc = 0
 
-const addShippingToCard = () => {
+function addShippingToCard() {
     var title = "shipping"
     var price = "4"
     var productImg = "https://static.vecteezy.com/system/resources/thumbnails/002/206/240/small/fast-delivery-icon-free-vector.jpg"
@@ -160,19 +160,29 @@ const addShippingToCard = () => {
     saveCartItems();
     updateCartIcon()            
 }
+// setInterval(addShippingToCard, 10)
+
+var something = (function() {
+    var executed = false;
+    return function() {
+        if (!executed) {
+            executed = true;
+            addShippingToCard();
+        }
+    };
+})();
+something();
 
 
 
-
-
-function idk23() {
-    if (debc == 0) {
-        setInterval(addShippingToCard, 10);
-        debc = 1;
-    } else {
-        setInterval(addShippingToCard, -1);
-    }
-}
+// function idk23() {
+//     if (debc == 0) {
+//         setInterval(addShippingToCard, 10);
+//         debc = 1;
+//     } else {
+//         setInterval(addShippingToCard, -1);
+//     }
+// }
 
 
 
