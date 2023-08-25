@@ -155,7 +155,7 @@ const addShippingToCard = () => {
     var title = "shipping"
     var price = "4"
     var productImg = "https://static.vecteezy.com/system/resources/thumbnails/002/206/240/small/fast-delivery-icon-free-vector.jpg"
-    addProductToCart(title, price, productImg);
+    addProductToCart2(title, price, productImg);
     updatetotal();
     saveCartItems();
     updateCartIcon()            
