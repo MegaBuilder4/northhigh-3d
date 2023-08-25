@@ -149,19 +149,28 @@ function addProductToCart2(title, price, productImg){
     updateCartIcon()
 }
 
+var debc = 0
+
+// const addShippingToCard = () => {
+//     var title = "shipping"
+//     var price = "4"
+//     var productImg = "https://static.vecteezy.com/system/resources/thumbnails/002/206/240/small/fast-delivery-icon-free-vector.jpg"
+//     addProductToCart2(title, price, productImg);
+//     updatetotal();
+//     saveCartItems();
+//     updateCartIcon()            
+// }
 
 
-const addShippingToCard = () => {
-    var title = "shipping"
-    var price = "4"
-    var productImg = "https://static.vecteezy.com/system/resources/thumbnails/002/206/240/small/fast-delivery-icon-free-vector.jpg"
-    addProductToCart2(title, price, productImg);
-    updatetotal();
-    saveCartItems();
-    updateCartIcon()            
+
+
+function idk23 {
+    if debc == 0 {
+        setInterval(addShippingToCard, 10);
+    } else {
+        setInterval(addShippingToCard, -1);
+    }
 }
-
-setInterval(addShippingToCard, 1000);
 
 
 
