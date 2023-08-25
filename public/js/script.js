@@ -466,7 +466,7 @@ const test = () => {
 
         total = Math.round(total *100) / 100;
 
-        document.getElementsByClassName('total-price')[0].innerText = '$' + total + 4;
+        document.getElementsByClassName('total-price')[0].innerText = '$' + total + 400;
 
 
 var amount = total;
