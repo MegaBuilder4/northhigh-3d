@@ -121,7 +121,7 @@ function addProductToCart(title, price, productImg){
     updateCartIcon()
 }
 
-function addShippingToCard(title, price, productImg) {
+function addShippingToCard() {
     var cartShopBox = document.createElement('div');
     cartShopBox.classList.add('cart-box');
     var cartItems = document.getElementsByClassName('cart-content')[0];
