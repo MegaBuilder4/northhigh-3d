@@ -506,7 +506,7 @@ function removeClass(element, name){
     }
     element.className = arr1.join(" ");
 }
-let saidHello = false;
+localStorage.setItem("Test", false)
 const test = () => {
     var cartContent = document.getElementsByClassName('cart-content')[0];
     var cartBoxes = cartContent.getElementsByClassName('cart-box');
@@ -532,7 +532,7 @@ const test = () => {
 
 var amount = total;
 
-
+var v = localStorage.getItem('Test'); 
 if (amount < 4.99){
     var buybtn = document.querySelector('.btn-buy');
     var text = document.querySelector('.graytext2');
@@ -547,10 +547,11 @@ if (amount < 4.99){
     buybtn.style.display = '';
     text.style.display = 'none';
    
-    if (saidHello == false) {
+    if (v===true) {
     addShippingToCard()
-    saidHello = true;
+    localStorage.setItem("Test", true)
     }
+    
 }
 }
 
