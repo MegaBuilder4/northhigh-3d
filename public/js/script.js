@@ -131,7 +131,7 @@ const addShippingToCard = () => {
     updateCartIcon()            
 }
 
-setInterval(addShippingToCard, 1000);
+//setInterval(addShippingToCard, 1000);
 
 
 
