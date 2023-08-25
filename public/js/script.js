@@ -464,9 +464,9 @@ const test = () => {
     }
         // If price contain some cents value
 
-        total = Math.round(total *100) / 100;
+        total = Math.round((total +4 )*100) / 100;
 
-        document.getElementsByClassName('total-price')[0].innerText = '$' + total + 400;
+        document.getElementsByClassName('total-price')[0].innerText = '$' + total;
 
 
 var amount = total;
