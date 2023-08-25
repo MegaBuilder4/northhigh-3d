@@ -487,7 +487,7 @@ const test = () => {
 var amount = total;
 
 
-if (amount < 4.99){
+if (amount < 0.99){
     var buybtn = document.querySelector('.btn-buy');
     var text = document.querySelector('.graytext2');
 
