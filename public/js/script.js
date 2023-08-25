@@ -164,13 +164,13 @@ var debc = 0
 
 
 
-function idk23 {
-    if debc == 0 {
-        setInterval(addShippingToCard, 10);
-    } else {
-        setInterval(addShippingToCard, -1);
-    }
-}
+// function idk23 {
+//     if debc == 0 {
+//         setInterval(addShippingToCard, 10);
+//     } else {
+//         setInterval(addShippingToCard, -1);
+//     }
+// }
 
 
 
