@@ -160,18 +160,19 @@ const addShippingToCard = () => {
     saveCartItems();
     updateCartIcon()            
 }
-setInterval(addShippingToCard, 10000);
 
 
 
 
-// function idk23 {
-//     if debc == 0 {
-//         setInterval(addShippingToCard, 10);
-//     } else {
-//         setInterval(addShippingToCard, -1);
-//     }
-// }
+
+function idk23() {
+    if (debc == 0) {
+        setInterval(addShippingToCard, 10);
+        debc = 1
+    } else {
+        setInterval(addShippingToCard, -1);
+    }
+}
 
 
 
@@ -519,7 +520,7 @@ const test = () => {
     }
         // If price contain some cents value
 
-        total = Math.round((total +4 )*100) / 100;
+        total = Math.round(total*100) / 100;
 
         document.getElementsByClassName('total-price')[0].innerText = '$' + total;
 
