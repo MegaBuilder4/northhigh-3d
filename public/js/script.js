@@ -137,7 +137,7 @@ function addProductToCart2(title, price, productImg){
                         <div class="detail-box">
                             <div class="cart-product-title">${title}</div>
                             <div class="cart-price">${price}</div>
-                            <h4 class="cart-quantity">Qty: 1</h4>
+                           <div class="invisible1"> <h4>Qty: <input type="number" value="1" class="cart-quantity"></h4> </div>
                             <div class="total2"></div>
                         </div>`;
                     
