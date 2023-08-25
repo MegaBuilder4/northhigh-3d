@@ -160,7 +160,7 @@ function addShippingToCard() {
     saveCartItems();
     updateCartIcon()            
 }
-addShippingToCard()
+
 
 
 
