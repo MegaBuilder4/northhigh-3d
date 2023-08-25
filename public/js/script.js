@@ -547,7 +547,7 @@ if (amount < 4.99){
     buybtn.style.display = '';
     text.style.display = 'none';
    
-    if (v===true) {
+    if (v==true) {
     addShippingToCard()
     localStorage.setItem("Test", true)
     }
