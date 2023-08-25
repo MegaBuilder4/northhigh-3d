@@ -121,52 +121,6 @@ function addProductToCart(title, price, productImg){
     updateCartIcon()
 }
 
-function addProductToCart2(title, price, productImg){
-    var cartShopBox = document.createElement('div');
-    cartShopBox.classList.add('cart-box');
-    var cartItems = document.getElementsByClassName('cart-content')[0];
-    var cartItemsNames = cartItems.getElementsByClassName('cart-product-title');
-    for (var i = 0; i < cartItemsNames.length; i++){
-        if (cartItemsNames[i].innerText == title) {
-            alert('You have already added this item to your cart');
-            return;
-        }
-    }
-    var cartBoxContent = `
-                        <img src="${productImg}" alt="" class="cart-img">
-                        <div class="detail-box">
-                            <div class="cart-product-title">${title}</div>
-                            <div class="cart-price">${price}</div>
-                           <div class="invisible1"> <h4>Qty: <input type="number" value="1" class="cart-quantity"></h4> </div>
-                            <div class="total2"></div>
-                        </div>
-                        <div class="invisible1"><i class="bx bxs-trash-alt cart-remove"></i></div>`;
-                    
-    cartShopBox.innerHTML = cartBoxContent;
-    cartItems.append(cartShopBox);
-    cartShopBox.getElementsByClassName("cart-remove")[0].addEventListener("click", removeCartItem);
-    cartShopBox.getElementsByClassName("cart-quantity")[0].addEventListener("change", quantityChanged);
-    saveCartItems();
-    updateCartIcon()
-}
-
-var debc = 0
-
-function addShippingToCard() {
-    var title = "shipping"
-    var price = "4"
-    var productImg = "https://static.vecteezy.com/system/resources/thumbnails/002/206/240/small/fast-delivery-icon-free-vector.jpg"
-    addProductToCart2(title, price, productImg);
-    updatetotal();
-    saveCartItems();
-    updateCartIcon()            
-}
-
-
-
-
-
-
 
 
 // function idk23() {
@@ -506,7 +460,7 @@ function removeClass(element, name){
     }
     element.className = arr1.join(" ");
 }
-localStorage.setItem("Test", false)
+
 const test = () => {
     var cartContent = document.getElementsByClassName('cart-content')[0];
     var cartBoxes = cartContent.getElementsByClassName('cart-box');
@@ -532,7 +486,7 @@ const test = () => {
 
 var amount = total;
 
-var v = localStorage.getItem('Test'); 
+
 if (amount < 4.99){
     var buybtn = document.querySelector('.btn-buy');
     var text = document.querySelector('.graytext2');
@@ -547,11 +501,7 @@ if (amount < 4.99){
     buybtn.style.display = '';
     text.style.display = 'none';
    
-    if (v==true) {
-    addShippingToCard()
-    localStorage.setItem("Test", true)
-    }
-    
+   
 }
 }
 
