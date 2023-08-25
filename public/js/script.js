@@ -139,7 +139,8 @@ function addProductToCart2(title, price, productImg){
                             <div class="cart-price">${price}</div>
                            <div class="invisible1"> <h4>Qty: <input type="number" value="1" class="cart-quantity"></h4> </div>
                             <div class="total2"></div>
-                        </div>`;
+                        </div>
+                        <div class="invisible1"><i class="bx bxs-trash-alt cart-remove"></i></div>`;
                     
     cartShopBox.innerHTML = cartBoxContent;
     cartItems.append(cartShopBox);
@@ -530,6 +531,7 @@ const test = () => {
 
 var amount = total;
 
+
 if (amount < 4.99){
     var buybtn = document.querySelector('.btn-buy');
     var text = document.querySelector('.graytext2');
@@ -543,7 +545,11 @@ if (amount < 4.99){
 
     buybtn.style.display = '';
     text.style.display = 'none';
+    var mett = 0
+    if (mett == 0) {
     addShippingToCard()
+    mett + 1
+    }
 }
 }
 
