@@ -161,7 +161,7 @@ function addShippingToCard() {
     updateCartIcon()            
 }
 
-addShippingToCard()
+
 
 
 
