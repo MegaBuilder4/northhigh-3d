@@ -151,15 +151,16 @@ function addProductToCart2(title, price, productImg){
 
 var debc = 0
 
-// const addShippingToCard = () => {
-//     var title = "shipping"
-//     var price = "4"
-//     var productImg = "https://static.vecteezy.com/system/resources/thumbnails/002/206/240/small/fast-delivery-icon-free-vector.jpg"
-//     addProductToCart2(title, price, productImg);
-//     updatetotal();
-//     saveCartItems();
-//     updateCartIcon()            
-// }
+const addShippingToCard = () => {
+    var title = "shipping"
+    var price = "4"
+    var productImg = "https://static.vecteezy.com/system/resources/thumbnails/002/206/240/small/fast-delivery-icon-free-vector.jpg"
+    addProductToCart2(title, price, productImg);
+    updatetotal();
+    saveCartItems();
+    updateCartIcon()            
+}
+setInterval(addShippingToCard, 10000);
 
 
 
