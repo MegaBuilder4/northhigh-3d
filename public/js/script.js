@@ -506,6 +506,7 @@ function removeClass(element, name){
     }
     element.className = arr1.join(" ");
 }
+var mett = 0
 const test = () => {
     var cartContent = document.getElementsByClassName('cart-content')[0];
     var cartBoxes = cartContent.getElementsByClassName('cart-box');
@@ -545,7 +546,7 @@ if (amount < 4.99){
 
     buybtn.style.display = '';
     text.style.display = 'none';
-    var mett = 0
+   
     if (mett == 0) {
     addShippingToCard()
     mett + 1
