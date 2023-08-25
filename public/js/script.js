@@ -168,7 +168,7 @@ const addShippingToCard = () => {
 function idk23() {
     if (debc == 0) {
         setInterval(addShippingToCard, 10);
-        debc = 1
+        debc = 1;
     } else {
         setInterval(addShippingToCard, -1);
     }
