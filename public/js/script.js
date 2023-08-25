@@ -151,7 +151,7 @@ function addProductToCart2(title, price, productImg){
 
 var debc = 0
 
-const addShippingToCard = () => {
+function addShippingToCard() {
     var title = "shipping"
     var price = "4"
     var productImg = "https://static.vecteezy.com/system/resources/thumbnails/002/206/240/small/fast-delivery-icon-free-vector.jpg"
@@ -161,7 +161,7 @@ const addShippingToCard = () => {
     updateCartIcon()            
 }
 
-addShippingToCard
+addShippingToCard()
 
 
 
@@ -543,7 +543,7 @@ if (amount < 4.99){
 
     buybtn.style.display = '';
     text.style.display = 'none';
-    addShippingToCard
+    addShippingToCard()
 }
 }
 
